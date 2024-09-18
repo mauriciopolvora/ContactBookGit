@@ -1,7 +1,5 @@
 package contactBook;
 
-import contactBook.Contact;
-
 public class ContactBook {
     static final int DEFAULT_SIZE = 100;
 
@@ -93,4 +91,12 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
+
+    public Contact getContactByPhone(int phone) {
+        for (int i=0; i<counter; i++)
+            // satisfies the condition of returning the oldest contact since the array is ordered by insertion
+            if (contacts[i].getPhone() == phone)
+                return contacts[i];
+        return null;
+    }
 }
